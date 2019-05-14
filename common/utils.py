@@ -1,8 +1,3 @@
-import logging
-
-logger = logging.getLogger(__name__)
-
-
 def get_ip_address(request):
     http_x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR: ", "")
     # logger.error(f'HTTP_X_FORWARDED_FOR: {http_x_forwarded_for}')
