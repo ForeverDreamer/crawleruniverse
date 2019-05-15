@@ -43,12 +43,12 @@ ip_count = {}
 @cache_page(0)
 def proxy_server(request):
     ip = request.META.get("REMOTE_ADDR")
-    logger.info(ip_count)
     if ip in ip_count.keys():
         ip_count[ip] += 1
     else:
         ip_count[ip] = 1
 
+    logger.info(ip_count)
     if ip_count[ip] > 5:
         return HttpResponseForbidden("banned")
     else:
